@@ -1,0 +1,29 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 0.1fr 1fr;
+  margin-top: 10%;
+}
+
+.box {
+  width: 80%;
+  height: auto;
+  text-align: center;
+  padding: 10%;
+}
+
+.center_bar {
+  width: 20%;
+  height: 120%;
+  margin-top: -150%;
+  background-color: #000;
+}
+
+.center_bar .logo {
+  font-size: 5vw;
+  font-weight: 900;
+}
+
+.sublogo {
+  font-size: 3vw;
+  font-weight: 600;
+}
