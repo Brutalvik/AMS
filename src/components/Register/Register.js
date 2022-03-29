@@ -1,9 +1,9 @@
 import React from "react";
-import Form from "react-bootstrap/Form";
 import classes from "./Register.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { postUser } from "../../store/registerUser";
-import Spinner from "../../UI/Spinner";
+import Spinner from "../../UI/Spinner/Spinner";
+import Registration from "./Registration";
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -21,63 +21,11 @@ const Register = () => {
     await dispatch(postUser(userData));
   };
 
-  const Registration = () => {
-    return (
-      <div className={classes.form_container}>
-        <Form>
-          <Form.Group className="mb-3">
-            <Form.Control
-              name="name"
-              type="text"
-              placeholder="Name"
-              className={classes.input_container}
-              value={userData.name || ""}
-              onChange={handleChange}
-            />
-            <Form.Text className={classes.error}>error</Form.Text>
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Control
-              name="email"
-              type="email"
-              placeholder="Email"
-              className={classes.input_container}
-              value={userData.email || ""}
-              onChange={handleChange}
-            />
-            <Form.Text className={classes.error}>error</Form.Text>
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Control
-              name="password"
-              type="password"
-              placeholder="Password"
-              className={classes.input_container}
-              value={userData.password || ""}
-              onChange={handleChange}
-            />
-            <Form.Text className={classes.error}>error</Form.Text>
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label className={classes.labeltext}>Date of Birth</Form.Label>
-            <Form.Control
-              name="dob"
-              type="date"
-              className={classes.input_container}
-              value={userData.dob || ""}
-              onChange={handleChange}
-            />
-            <Form.Text className={classes.error}>error</Form.Text>
-          </Form.Group>
-          <button
-            className={`btn btn-primary ${classes.button}`}
-            onClick={handleClick}
-          >
-            Register
-          </button>
-        </Form>
-      </div>
-    );
+  const props = {
+    handleChange: handleChange,
+    handleClick: handleClick,
+    userData: userData,
+    status: status,
   };
 
   return status.loading ? (
@@ -85,7 +33,7 @@ const Register = () => {
       <Spinner />
     </div>
   ) : (
-    <Registration />
+    <Registration {...props} />
   );
 };
 

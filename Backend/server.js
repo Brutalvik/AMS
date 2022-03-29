@@ -23,7 +23,7 @@ app.post("/api/register", (req, res) => {
   };
 
   if (!user.name || !user.email || !user.password || !user.dob) {
-    return res.status(400).json({ message: "Value cannot be blank" });
+    return res.status(400).json({ error: "Value cannot be blank" });
   }
 
   //send to database

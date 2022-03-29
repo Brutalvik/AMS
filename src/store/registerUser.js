@@ -17,7 +17,12 @@ export const postUser = (user) => {
       await sendRequest().then((response) => {
         if (response.status === 200) {
           dispatch(registerActions.registerUser(user));
-          dispatch(logicActions.setMessage({ message: response.data.message }));
+          dispatch(
+            logicActions.setMessage({
+              status: response.status,
+              message: response.data.message,
+            })
+          );
           dispatch(logicActions.setLoading(false));
         }
       });
@@ -27,7 +32,7 @@ export const postUser = (user) => {
         logicActions.setMessage({
           status: err.response.status,
           statusText: err.response.statusText,
-          message: err.response.data.message,
+          error: err.response.data.error,
         })
       );
       dispatch(logicActions.setLoading(false));
