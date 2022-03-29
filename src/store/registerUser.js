@@ -19,14 +19,6 @@ export const postUser = (user) => {
           dispatch(registerActions.registerUser(user));
           dispatch(logicActions.setMessage({ message: response.data.message }));
           dispatch(logicActions.setLoading(false));
-        } else {
-          dispatch(
-            logicActions.setMessage({
-              status: response.status,
-              message: "Registration failed",
-            })
-          );
-          dispatch(logicActions.setLoading(false));
         }
       });
     } catch (err) {
@@ -38,6 +30,7 @@ export const postUser = (user) => {
           message: err.response.data.message,
         })
       );
+      dispatch(logicActions.setLoading(false));
     }
   };
 };
