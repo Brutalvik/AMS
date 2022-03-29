@@ -20,7 +20,7 @@ const Home = () => {
       </div>
       <div className={classes.center_bar}></div>
       <div className={classes.box}>
-        {status.status === 200 ? <Status /> : <Login />}
+        {status.status === 200 ? <Status /> : <Register />}
       </div>
     </div>
   );
