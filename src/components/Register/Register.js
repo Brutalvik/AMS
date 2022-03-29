@@ -7,18 +7,19 @@ import Registration from "./Registration";
 
 const Register = () => {
   const dispatch = useDispatch();
-  const test = useSelector((state) => console.log(state.logic));
+  // const test = useSelector((state) => console.log(state.logic));
   const status = useSelector((state) => state.logic);
   const [userData, setUserData] = React.useState({});
+  console.log(status);
 
   const handleChange = (event) => {
     event.preventDefault();
     setUserData({ ...userData, [event.target.name]: event.target.value });
   };
 
-  const handleClick = async (event) => {
+  const handleClick = (event) => {
     event.preventDefault();
-    await dispatch(postUser(userData));
+    dispatch(postUser(userData));
   };
 
   const props = {

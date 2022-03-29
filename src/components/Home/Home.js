@@ -1,9 +1,12 @@
 import React from "react";
 import classes from "./Home.module.css";
+import { useSelector } from "react-redux";
 //Components
 import Register from "../Register/Register";
+import Status from "../Status/Status";
 
 const Home = () => {
+  const status = useSelector((state) => state.logic.message);
   return (
     <div className={classes.container}>
       <div className={classes.box}>
@@ -16,7 +19,7 @@ const Home = () => {
       </div>
       <div className={classes.center_bar}></div>
       <div className={classes.box}>
-        <Register />
+        {status.status === 200 ? <Status /> : <Register />}
       </div>
     </div>
   );
