@@ -29,5 +29,13 @@
 }
 
 .spinner {
-  margin-left: 50%;
+  margin-left: 40%;
+}
+
+.login_link {
+  font-size: 1vw;
+  font-weight: bold;
+  margin-top: 10%;
+  cursor: pointer;
+  width: 50%;
 }

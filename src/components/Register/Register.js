@@ -4,11 +4,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { postUser } from "../../store/registerUser";
 import Spinner from "../../UI/Spinner/Spinner";
 import Registrationform from "./Registrationform";
+import { logicActions } from "../../store/logicReducer";
 
 const Register = () => {
   const dispatch = useDispatch();
   const status = useSelector((state) => state.logic);
   const [userData, setUserData] = React.useState({});
+  console.log(status);
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -20,9 +22,15 @@ const Register = () => {
     dispatch(postUser(userData));
   };
 
+  const handleNavigate = (event) => {
+    event.preventDefault();
+    dispatch(logicActions.setActive("login"));
+  };
+
   const props = {
     handleChange: handleChange,
     handleClick: handleClick,
+    handleNavigate: handleNavigate,
     userData: userData,
     status: status,
   };

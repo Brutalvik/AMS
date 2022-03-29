@@ -9,7 +9,6 @@ export const postUser = (user) => {
     dispatch(logicActions.setLoading(true));
     const sendRequest = async () => {
       const response = await axios.post(`${postURL}/api/register`, user);
-      console.log(response);
       return response;
     };
 

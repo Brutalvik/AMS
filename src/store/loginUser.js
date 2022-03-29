@@ -1,11 +1,35 @@
 import axios from "axios";
 import { logicActions } from "./logicReducer";
+import { authActions } from "./authReducer";
 
 const postURL = process.env.REACT_APP_POST_URL;
 
-export const loginUser = async (user) => {
-  return (dispatch) => {
+export const loginUser = (user) => {
+  return async (dispatch) => {
     dispatch(logicActions.setLoading(true));
-    const sendRequest = () => {};
+    const sendRequest = async () => {
+      const response = await axios.post(`${postURL}/api/login`, user);
+      console.log(response);
+      return response;
+    };
+
+    try {
+      await sendRequest().then((response) => {
+        if (response.status === 200) {
+          dispatch(authActions.authUser(user));
+          dispatch(
+            logicActions.setMessage({
+              status: response.status,
+              message: response.data.message,
+            })
+          );
+          dispatch(authActions.setIsAuthenticated(true));
+          dispatch(authActions.setIsLoggedIn(true));
+          dispatch(logicActions.setLoading(false));
+        }
+      });
+    } catch (err) {
+      console.log(err.response);
+    }
   };
 };

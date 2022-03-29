@@ -2,6 +2,7 @@ import React from "react";
 import classes from "./Login.module.css";
 import Form from "react-bootstrap/Form";
 import { useSelector, useDispatch } from "react-redux";
+import { loginUser } from "../../store/loginUser";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,9 @@ const Login = () => {
 
   const handleClick = (event) => {
     event.preventDefault();
+    console.log(userData);
+    dispatch(loginUser(userData));
+    console.log("req sent");
   };
 
   return (

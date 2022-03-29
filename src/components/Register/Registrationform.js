@@ -1,9 +1,12 @@
 import Form from "react-bootstrap/Form";
 import classes from "./Register.module.css";
+import Button from "react-bootstrap/Button";
 
 const Registrationform = (props) => {
   return (
     <div className={classes.form_container}>
+      <h1>Signup</h1>
+      <br />
       <Form>
         <Form.Group className="mb-3">
           <Form.Control
@@ -57,13 +60,16 @@ const Registrationform = (props) => {
             {!props.userData.dob && props.status.message.error}
           </Form.Text>
         </Form.Group>
-        <button
+        <Button
           className={`btn btn-primary ${classes.button}`}
           onClick={props.handleClick}
         >
           Register
-        </button>
+        </Button>
       </Form>
+      <div className={classes.login_link}>
+        <p onClick={props.handleNavigate}>Already Registered ? Click here</p>
+      </div>
     </div>
   );
 };

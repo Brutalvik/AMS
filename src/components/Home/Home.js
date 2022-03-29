@@ -8,6 +8,8 @@ import Status from "../Status/Status";
 
 const Home = () => {
   const status = useSelector((state) => state.logic.message);
+  const active = useSelector((state) => state.logic.active);
+  console.log(active);
   return (
     <div className={classes.container}>
       <div className={classes.box}>
@@ -20,7 +22,13 @@ const Home = () => {
       </div>
       <div className={classes.center_bar}></div>
       <div className={classes.box}>
-        {status.status === 200 ? <Status /> : <Register />}
+        {status.status === 200 ? (
+          <Status />
+        ) : active === "register" ? (
+          <Register />
+        ) : (
+          <Login />
+        )}
       </div>
     </div>
   );
