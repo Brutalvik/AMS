@@ -9,7 +9,6 @@ export const loginUser = (user) => {
     dispatch(logicActions.setLoading(true));
     const sendRequest = async () => {
       const response = await axios.post(`${postURL}/api/login`, user);
-      console.log(response);
       return response;
     };
 
@@ -17,6 +16,8 @@ export const loginUser = (user) => {
       await sendRequest().then((response) => {
         if (response.status === 200) {
           dispatch(authActions.authUser(user));
+          // console.log(response.data);
+          localStorage.setItem("authUser", JSON.stringify(response.data));
           dispatch(
             logicActions.setMessage({
               status: response.status,

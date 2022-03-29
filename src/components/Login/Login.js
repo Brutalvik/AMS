@@ -16,9 +16,7 @@ const Login = () => {
 
   const handleClick = (event) => {
     event.preventDefault();
-    console.log(userData);
     dispatch(loginUser(userData));
-    console.log("req sent");
   };
 
   return (

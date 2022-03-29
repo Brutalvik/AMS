@@ -18,11 +18,13 @@ const Status = () => {
   return (
     <div>
       <h1>{status.message}</h1>
-      <p>Login to access account</p>
       {status.message === "Registration Successful" && (
-        <Button variant="primary" size="lg" onClick={handleClick}>
-          Login
-        </Button>
+        <>
+          <p>Login to access account</p>
+          <Button variant="primary" size="lg" onClick={handleClick}>
+            Login
+          </Button>
+        </>
       )}
     </div>
   );

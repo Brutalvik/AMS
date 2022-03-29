@@ -29,7 +29,6 @@ router.post("/", async (req, res) => {
     `INSERT INTO users (name, email, password, dob, status) VALUES ('${user.name}', '${user.email}', '${user.password}', '${user.dob}', '${user.status}')`,
     (err, result) => {
       if (err) throw err;
-      console.log(result);
     }
   );
 
