@@ -1,8 +1,7 @@
 import Form from "react-bootstrap/Form";
 import classes from "./Register.module.css";
-import { useSelector, useDispatch } from "react-redux";
 
-const Registration = (props) => {
+const Registrationform = (props) => {
   return (
     <div className={classes.form_container}>
       <Form>
@@ -69,4 +68,4 @@ const Registration = (props) => {
   );
 };
 
-export default Registration;
+export default Registrationform;

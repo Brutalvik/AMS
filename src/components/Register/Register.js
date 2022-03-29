@@ -3,14 +3,12 @@ import classes from "./Register.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { postUser } from "../../store/registerUser";
 import Spinner from "../../UI/Spinner/Spinner";
-import Registration from "./Registration";
+import Registrationform from "./Registrationform";
 
 const Register = () => {
   const dispatch = useDispatch();
-  // const test = useSelector((state) => console.log(state.logic));
   const status = useSelector((state) => state.logic);
   const [userData, setUserData] = React.useState({});
-  console.log(status);
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -34,7 +32,7 @@ const Register = () => {
       <Spinner />
     </div>
   ) : (
-    <Registration {...props} />
+    <Registrationform {...props} />
   );
 };
 

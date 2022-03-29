@@ -3,6 +3,7 @@ import classes from "./Home.module.css";
 import { useSelector } from "react-redux";
 //Components
 import Register from "../Register/Register";
+import Login from "../Login/Login";
 import Status from "../Status/Status";
 
 const Home = () => {
@@ -19,7 +20,7 @@ const Home = () => {
       </div>
       <div className={classes.center_bar}></div>
       <div className={classes.box}>
-        {status.status === 200 ? <Status /> : <Register />}
+        {status.status === 200 ? <Status /> : <Login />}
       </div>
     </div>
   );

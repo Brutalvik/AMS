@@ -1,0 +1,33 @@
+.form_container {
+  text-align: left;
+}
+
+.input_container {
+  font-size: 1.5vw;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 5px 0px #000000;
+  box-shadow: 0px 0px 5px 0px #000000;
+}
+
+.labeltext {
+  font-size: 1.2vw;
+}
+
+.button {
+  margin-top: 10%;
+  font-size: 1.2vw;
+  font-weight: bold;
+  padding: 2% 10%;
+  float: right;
+  border-radius: 10px;
+}
+
+.error {
+  color: red;
+  font-size: 1vw;
+  margin-left: 1%;
+}
+
+.spinner {
+  margin-left: 50%;
+}
