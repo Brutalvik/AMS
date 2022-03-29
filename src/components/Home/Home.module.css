@@ -9,6 +9,7 @@
   height: auto;
   text-align: center;
   padding: 10%;
+  user-select: none;
 }
 
 .center_bar {

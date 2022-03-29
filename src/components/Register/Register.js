@@ -2,12 +2,11 @@ import React from "react";
 import Form from "react-bootstrap/Form";
 import classes from "./Register.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import { registerActions } from "../../store/registerReducer";
+import { postUser } from "../../store/registerUser";
+
 const Register = () => {
   const dispatch = useDispatch();
-  // const test = useSelector((state) => console.log(state.register));
-  // const user = useSelector((state) => state.register);
-
+  const message = useSelector((state) => console.log(state.logic.message));
   const [userData, setUserData] = React.useState({});
 
   const handleChange = (event) => {
@@ -15,9 +14,9 @@ const Register = () => {
     setUserData({ ...userData, [event.target.name]: event.target.value });
   };
 
-  const handleClick = (event) => {
+  const handleClick = async (event) => {
     event.preventDefault();
-    dispatch(registerActions.registerUser(userData));
+    await dispatch(postUser(userData));
   };
 
   return (

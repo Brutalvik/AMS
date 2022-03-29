@@ -1,6 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { isLoggedIn: false, isAuthenticated: false, error: [] };
+const initialState = {
+  isLoggedIn: false,
+  isAuthenticated: false,
+  message: [],
+  loading: false,
+};
 
 const logicSlice = createSlice({
   name: "logic",
@@ -12,12 +17,15 @@ const logicSlice = createSlice({
     setIsAuthenticated(state, action) {
       state.isAuthenticated = action.payload;
     },
-    setError(state, action) {
-      state.error = action.payload;
+    setMessage(state, action) {
+      state.message = action.payload;
+    },
+    setLoading(state, action) {
+      state.loading = action.payload;
     },
   },
 });
 
-export const registerActions = logicSlice.actions;
+export const logicActions = logicSlice.actions;
 
 export default logicSlice;
